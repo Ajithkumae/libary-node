@@ -1,0 +1,15 @@
+{ "bookId": "ilkk1",
+  "name": {
+    "bookName": "tail of naruto"
+  },
+  "languages": {
+    "multiLanguages": true,
+    "languages": ["english","japanies","tamil"]
+  },
+  "auther": {
+    "name": "ajith",
+    "about": "good writer"
+  }
+  }
+
+  
