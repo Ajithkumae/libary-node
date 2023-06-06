@@ -24,12 +24,8 @@ app.use(function(req, res, next) {
 
 app.use(bodyParser.json());
 
-app.get("/all", (req, res, next) => {
-  res.status(200).send("its working");
-  next();
-});
 
-app.use("/addBook", bookInventry);
+app.use("/book", bookInventry);
 // body of request ///
 
 // if worng api //
@@ -38,8 +34,6 @@ app.get("*", (req, res) => {
 });
 // if worng api end //
 
-// body of request end  ///
-// body of request end  ///
 
 // port listener ///
 app.listen(port, () => console.log(`backend listining on port ${port}`));

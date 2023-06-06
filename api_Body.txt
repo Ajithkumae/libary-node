@@ -1,3 +1,5 @@
+for add the data --------------------
+
 { "bookId": "ilkk1",
   "name": {
     "bookName": "tail of naruto"
@@ -12,4 +14,24 @@
   }
   }
 
+
+for update the data --------------------
+
+{
+    "bookId":"647e97347929d413c76127b4",
+    "data":{
+        "name": {
+        "bookName": "tail of naruto shipuden check update"
+    },
+    "languages": {
+        "multiLanguages": true,
+        "languages": [
+            "english",
+            "japanies",
+            "tamil",
+            "hindi"
+        ]
+    }
+    }
+}
   

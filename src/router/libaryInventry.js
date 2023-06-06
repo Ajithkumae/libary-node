@@ -1,12 +1,13 @@
 const express = require("express");
-const addBooks = require("../models/LibaryInventresModel");
 const {
   addBookInventry,
   getBookById,
+  showBooks,
+  updateBook,
 } = require("../controller/libaryInventry");
 const bookInventry = express.Router();
 
-bookInventry.post("/add", async (req, res) => {
+bookInventry.post("/addBook", async (req, res) => {
   const {
     bookId,
     name: { bookName },
@@ -20,7 +21,7 @@ bookInventry.post("/add", async (req, res) => {
     languages: { multiLanguages, languages },
     auther: { name, about },
   });
-  debugger;
+
   if (result.save) {
     res.send(result.data);
   }
@@ -29,11 +30,10 @@ bookInventry.post("/add", async (req, res) => {
   }
 });
 
-bookInventry.get("/findBook", async (req, res) => {
-  debugger;
-  const { userId } = req.query;
-  debugger;
-  const result = await getBookById(userId);
+bookInventry.get("/getBookById", async (req, res) => {
+  const { bookId } = req.query;
+  const result = await getBookById(bookId);
+
   if (result.sucess) {
     res.send(result.data);
   }
@@ -42,4 +42,27 @@ bookInventry.get("/findBook", async (req, res) => {
   }
 });
 
+bookInventry.get("/all", async (req, res) => {
+  const result = await showBooks();
+
+  if (result.sucess) {
+    res.send(result.data);
+  }
+  if (!result.sucess) {
+    res.status(500).send(result.data);
+  }
+});
+bookInventry.patch("/updateBookById", async (req, res) => {
+  debugger
+  const { id, data } = req.body;
+
+  const result = await updateBook(id, data);
+
+  if (result.save) {
+    res.send(result.data);
+  }
+  if (!result.save) {
+    res.status(500).send(result.data);
+  }
+});
 module.exports = bookInventry;

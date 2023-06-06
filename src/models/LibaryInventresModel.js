@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 
-const addBooksModel = new Schema({
-  bookId: Schema.Types.ObjectId,
+const bookSchema = new Schema({
+  bookId: String,
   name: {
     bookName: String,
   },
@@ -15,5 +15,5 @@ const addBooksModel = new Schema({
   },
 });
 
-const addBooks = model('Books',addBooksModel)
-module.exports = addBooks;
+const booksModel = model("Books", bookSchema);
+module.exports = booksModel;
